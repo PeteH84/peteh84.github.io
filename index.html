@@ -3,551 +3,450 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Peter Harding — Value & Portfolio Leadership. Outcome-driven decision making, portfolio clarity, prioritisation, and delivery governance." />
-  <title>Peter Harding — Value & Portfolio Leadership</title>
+  <meta name="description" content="Peter Harding — Value, Transformation & Delivery. Outcome-led prioritisation, operating model enablement, and value realisation." />
+  <title>Peter Harding — Value & Transformation</title>
 
   <style>
     :root{
-      --bg: #0b0f17;
-      --bg2:#0f1626;
-      --card:#111a2c;
-      --text:#e8eefc;
-      --muted:#a7b5d6;
+      /* Premium corporate palette */
+      --bg:#070A12;
+      --bg2:#0B1222;
+      --card:#0E1733;
+      --text:#EDF2FF;
+      --muted:#A8B3D6;
       --line: rgba(255,255,255,.12);
-      --accent:#7aa7ff;
-      --accent2:#7cf0c5;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1040px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
 
-    [data-theme="light"]{
-      --bg:#f7f9ff;
-      --bg2:#ffffff;
-      --card:#ffffff;
-      --text:#101827;
-      --muted:#4b556a;
-      --line: rgba(16,24,39,.14);
-      --accent:#245cff;
-      --accent2:#0f9d75;
-      --shadow: 0 10px 24px rgba(16,24,39,.10);
+      --accent:#6AA7FF;     /* refined blue */
+      --accent2:#6EF0C5;    /* restrained mint */
+      --accent3:#B8A6FF;    /* soft violet */
+
+      --shadow: 0 18px 44px rgba(0,0,0,.42);
+      --radius: 18px;
+      --max: 1120px;
+
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: var(--sans);
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(122,167,255,.25), transparent 55%),
-                  radial-gradient(900px 500px at 90% 0%, rgba(124,240,197,.18), transparent 60%),
-                  linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family:var(--sans);
       color:var(--text);
+      background:
+        radial-gradient(1100px 640px at 12% -10%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
+        radial-gradient(980px 520px at 92% 0%, color-mix(in oklab, var(--accent2) 14%, transparent), transparent 60%),
+        radial-gradient(900px 520px at 70% 120%, color-mix(in oklab, var(--accent3) 12%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
     }
-
-    a{color:inherit;text-decoration:none}
+    a{color:inherit; text-decoration:none}
     a:hover{color:var(--accent)}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 74px;}
 
-    /* Top bar */
+    /* Header */
     .topbar{
-      position:sticky; top:0; z-index:50;
+      position:sticky; top:0; z-index:60;
       backdrop-filter: blur(10px);
-      background: color-mix(in oklab, var(--bg2) 65%, transparent);
+      background: color-mix(in oklab, var(--bg2) 70%, transparent);
       border-bottom:1px solid var(--line);
     }
-    .topbar-inner{max-width:var(--max); margin:0 auto; padding:12px 18px; display:flex; align-items:center; gap:12px;}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
-    .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent)}
+    .topbar-inner{max-width:var(--max); margin:0 auto; padding:12px 18px; display:flex; align-items:center; gap:14px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:860; letter-spacing:.2px}
+    .mark{
+      width:12px; height:12px; border-radius:4px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 14%, transparent);
+      transform: rotate(10deg);
+    }
     .nav{margin-left:auto; display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
     .nav a{font-size:14px; color:var(--muted)}
     .nav a:hover{color:var(--text)}
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:10px 12px; border-radius:12px;
+      padding:10px 14px; border-radius:14px;
       border:1px solid var(--line);
-      background: color-mix(in oklab, var(--card) 86%, transparent);
+      background: color-mix(in oklab, var(--card) 84%, transparent);
       box-shadow: var(--shadow);
       font-size:14px; color:var(--text);
       cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease, filter .15s ease;
     }
-    .btn:hover{border-color: color-mix(in oklab, var(--accent) 50%, var(--line));}
-    .btn.small{padding:8px 10px; border-radius:10px; box-shadow:none}
-    .btn.primary{border:none; background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent2) 65%, var(--accent))); color:white;}
-    .btn.primary:hover{filter:brightness(1.03)}
+    .btn:hover{border-color: color-mix(in oklab, var(--accent) 55%, var(--line)); transform: translateY(-2px);}
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent2) 55%, var(--accent)));
+      color:#06101A;
+      font-weight:800;
+    }
 
-    /* Hero */
-    .hero{padding:44px 0 26px;}
-    .hero-grid{display:grid; gap:18px; grid-template-columns: 1.3fr .7fr; align-items:start;}
-    @media (max-width: 880px){ .hero-grid{grid-template-columns:1fr} }
-
-    h1{font-size:44px; margin:0 0 10px; line-height:1.05; letter-spacing:-.02em;}
-    .subtitle{font-size:18px; color:var(--muted); line-height:1.45; margin:0 0 18px;}
-
-    .tagrow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 22px;}
-    .tag{font-size:13px; color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:999px; background: color-mix(in oklab, var(--card) 78%, transparent)}
-
+    /* Cards + typography */
     .card{
       border:1px solid var(--line);
       border-radius: var(--radius);
       background: color-mix(in oklab, var(--card) 92%, transparent);
       box-shadow: var(--shadow);
-      padding:18px;
+      padding:20px;
     }
+    .muted{color:var(--muted)}
+    .mono{font-family:var(--mono)}
+    h1{font-size:52px; margin:0 0 12px; line-height:1.03; letter-spacing:-.02em;}
+    h2{font-size:22px; margin:0}
+    h3{font-size:16px; margin:0}
 
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap;}
+    /* Hero */
+    .hero{padding:54px 0 22px;}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start;}
+    @media (max-width: 980px){ .hero-grid{grid-template-columns:1fr} }
+    .subtitle{font-size:18px; line-height:1.6; color:var(--muted); margin:0; max-width:760px;}
 
-    .mini{
-      display:flex; flex-direction:column; gap:10px;
+    .tagrow{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 22px;}
+    .tag{
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:8px 12px; border-radius:999px;
+      background: color-mix(in oklab, var(--card) 76%, transparent);
+      animation: float 7s ease-in-out infinite;
     }
-    .mini h3{margin:0; font-size:14px; color:var(--muted); font-weight:650; letter-spacing:.08em; text-transform:uppercase}
-    .mini .line{height:1px; background:var(--line); margin:6px 0 2px}
-    .kpi{display:grid; gap:10px; grid-template-columns:1fr 1fr;}
-    .kpi .box{border:1px solid var(--line); border-radius:14px; padding:12px; background: color-mix(in oklab, var(--bg2) 80%, transparent)}
-    .kpi .num{font-family:var(--mono); font-size:18px}
-    .kpi .lbl{font-size:12px; color:var(--muted); margin-top:4px}
+    .tag:nth-child(2){animation-delay:.7s}
+    .tag:nth-child(3){animation-delay:1.4s}
+    .tag:nth-child(4){animation-delay:2.1s}
+    .tag:nth-child(5){animation-delay:2.8s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
-    /* Sections */
-    section{padding:26px 0}
-    .section-title{display:flex; align-items:baseline; gap:12px; margin:0 0 14px}
-    .section-title h2{margin:0; font-size:20px}
+    /* Section layout */
+    section{padding:30px 0}
+    .section-title{display:flex; align-items:baseline; gap:12px; margin:0 0 16px}
     .section-title p{margin:0; color:var(--muted); font-size:14px}
 
-    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width: 880px){ .grid-2{grid-template-columns:1fr} }
-
-    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
-    @media (max-width: 980px){ .grid-3{grid-template-columns:1fr} }
-
-    .list{margin:0; padding-left:18px; color:var(--muted)}
-    .list li{margin:8px 0}
-
-    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted);}
-    .pill b{color:var(--text); font-weight:650}
-
-    .project{display:flex; flex-direction:column; gap:10px}
-    .project h3{margin:0; font-size:16px}
-    .project p{margin:0; color:var(--muted); line-height:1.5}
-    .project .meta{display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:12px}
-
-    .split{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width: 880px){ .split{grid-template-columns:1fr} }
-
-    .certs{display:flex; flex-wrap:wrap; gap:10px}
-    .cert{border:1px solid var(--line); border-radius:999px; padding:8px 10px; background: color-mix(in oklab, var(--bg2) 78%, transparent); font-size:13px; color:var(--muted)}
-    .cert strong{color:var(--text)}
-
-    /* Sticky notes stack */
-    .sticky-stack{
-      display:grid;
-      gap:16px;
-      padding:6px 0;
-    }
-    .note{
-      position:sticky;
-      top:74px; /* below sticky header */
-      transform: rotate(var(--r, 0deg));
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding:16px 16px 14px;
-      background:
-        radial-gradient(600px 220px at 10% 0%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
-        linear-gradient(180deg, color-mix(in oklab, var(--bg2) 92%, transparent), color-mix(in oklab, var(--card) 92%, transparent));
-      box-shadow: var(--shadow);
-      margin-top: var(--t, 0px);
-    }
-    .note header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:10px;
-    }
-    .note h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:-.01em;
-    }
-    .note ul{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
-    }
-    .note li{margin:8px 0; line-height:1.45}
-    .note b{color:var(--text)}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width: 980px){ .grid-2{grid-template-columns:1fr} }
 
     .chip{
-      font-size:12px;
-      color:var(--muted);
+      font-size:12px; color:var(--muted);
       border:1px solid var(--line);
-      padding:6px 10px;
-      border-radius:999px;
+      padding:6px 10px; border-radius:999px;
       background: color-mix(in oklab, var(--bg2) 86%, transparent);
       white-space:nowrap;
     }
 
-    @media (max-width: 600px){
-      .note{top:64px}
-      .note header{flex-direction:column; align-items:flex-start}
+    /* Premium reveal */
+    .reveal{opacity:0; transform: translateY(18px) scale(.988); filter: blur(0px); transition: opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1; transform: translateY(0) scale(1)}
+    .delay-1{transition-delay:.08s}
+    .delay-2{transition-delay:.16s}
+    .delay-3{transition-delay:.24s}
+
+    /* KPI / value tiles */
+    .tiles{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
+    .tile{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      background: color-mix(in oklab, var(--bg2) 78%, transparent);
     }
+    .tile .k{font-size:12px; color:var(--muted); margin-top:4px; line-height:1.35}
+    .tile .v{font-family:var(--mono); font-weight:900}
 
-    /* Footer */
-    footer{padding:36px 0 18px; border-top:1px solid var(--line); margin-top:34px}
-    .foot{display:flex; gap:12px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13px}
-    .foot .sep{opacity:.4}
+    /* Feature blocks */
+    .block h3{margin:0 0 8px; letter-spacing:-.01em}
+    .block .meta{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:0 0 10px; color:var(--muted); font-size:12px}
+    .bullets{margin:0; padding-left:18px; color:var(--muted)}
+    .bullets li{margin:8px 0; line-height:1.45}
 
-    /* Utilities */
-    .muted{color:var(--muted)}
-    .mono{font-family:var(--mono)}
-    .sr-only{position:absolute; left:-9999px}
+    /* Timeline */
+    .timeline{position:relative; padding-left:22px; display:grid; gap:16px}
+    .timeline:before{
+      content:"";
+      position:absolute; left:9px; top:6px; bottom:6px;
+      width:2px; background: color-mix(in oklab, var(--accent) 35%, var(--line));
+      border-radius:999px;
+    }
+    .t-item{position:relative}
+    .t-item:before{
+      content:"";
+      position:absolute; left:-17px; top:10px;
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 12%, transparent);
+    }
+    .t-item h4{margin:0 0 6px; font-size:15px}
+    .t-item p{margin:0; color:var(--muted); line-height:1.5}
+    .when{font-size:12px; color:var(--muted); margin-top:6px}
+
+    footer{padding:36px 0 18px; border-top:1px solid var(--line); margin-top:36px}
+    .foot{color:var(--muted); font-size:13px}
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand" aria-label="Site home">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Peter Harding</span>
-      </div>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="#projects">Work</a>
-        <a href="#skills">Experience & Skills</a>
-        <a href="#certs">Certifications</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact">Contact</a>
-        <button id="themeBtn" class="btn small" type="button" aria-label="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">◐</span>
-          <span class="sr-only">Toggle theme</span>
-        </button>
-      </nav>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Peter Harding</span>
     </div>
-  </header>
 
-  <main class="wrap">
-    <section class="hero" id="top">
-      <div class="hero-grid">
-        <div>
-          <h1>Value & Portfolio Leadership</h1>
-          <p class="subtitle">
-            I help organisations move from output-focused delivery to <b>clear, defensible, outcome-driven decisions</b> —
-            designing practical prioritisation and intake systems that reduce noise, expose trade-offs, and improve investment confidence.
-          </p>
+    <nav class="nav" aria-label="Primary">
+      <a href="#focus">Focus</a>
+      <a href="#impact">Impact</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-          <div class="tagrow" aria-label="Key themes">
-            <span class="tag">Portfolio clarity</span>
-            <span class="tag">Backlog prioritisation</span>
-            <span class="tag">Evidence-based decisioning</span>
-            <span class="tag">Risk / Compliance trade-offs</span>
-            <span class="tag">Hybrid governance</span>
-          </div>
+<main class="wrap">
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div>
+        <h1 class="reveal in">Value, Transformation & Delivery</h1>
+        <p class="subtitle reveal in delay-1">
+          Outcome-led prioritisation, value realisation and operating model enablement across large-scale contact-centre and technology ecosystems.
+          I help teams turn complex backlogs into clear decisions — what matters, why it matters, and how value is proven.
+        </p>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#contact">Let’s talk</a>
-            <a class="btn" href="#projects">View work</a>
-            <!-- Replace with your CV PDF URL when available -->
-            <a class="btn" href="#" onclick="alert('Add your CV PDF link in the HTML (search for: Replace with your CV PDF URL).'); return false;">Download CV</a>
-          </div>
+        <div class="tagrow reveal in delay-2">
+          <span class="tag">Value realisation</span>
+          <span class="tag">Portfolio / PI prioritisation</span>
+          <span class="tag">Process intelligence</span>
+          <span class="tag">AI & automation</span>
+          <span class="tag">Operating model enablement</span>
         </div>
 
-        <aside class="card mini" aria-label="Quick snapshot">
-          <h3>Snapshot</h3>
-          <div class="line"></div>
-          <div class="kpi">
-            <div class="box">
-              <div class="num">VMO-aligned</div>
-              <div class="lbl">Value / portfolio focus</div>
-            </div>
-            <div class="box">
-              <div class="num">Comcast / Sky</div>
-              <div class="lbl">Governed, scaled environments</div>
-            </div>
-            <div class="box">
-              <div class="num">TIME</div>
-              <div class="lbl">Tolerate / Integrate / Mitigate / Exit</div>
-            </div>
-            <div class="box">
-              <div class="num">Evidence</div>
-              <div class="lbl">Decision quality > activity</div>
-            </div>
-          </div>
-          <p class="muted" style="margin:8px 0 0; line-height:1.55">
-            I work where competing priorities, governance, and scale make prioritisation difficult — building simple systems leaders can trust.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-title">
-        <h2>Work</h2>
-        <p>Selected portfolio / decision-system examples (non-confidential).</p>
-      </div>
-
-      <div class="grid-2">
-        <article class="card project">
-          <div class="pill"><b>Portfolio Prioritisation</b> <span class="muted">• TIME classification + decision rules</span></div>
-          <h3>TIME-based intake and prioritisation for multi-domain backlogs</h3>
-          <p>
-            Introduced a lightweight classification layer (Tolerate / Integrate / Mitigate / Exit) to make work comparable,
-            reduce re-debate during planning, and protect risk and exit work from being crowded out.
-          </p>
-          <div class="meta">
-            <span>Outcome: clearer sequencing + fewer escalations</span>
-            <span>Mechanism: front-door guardrails</span>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="pill"><b>Backlog Quality</b> <span class="muted">• Front-door guardrails</span></div>
-          <h3>Decision-ready intake: making value and effort comparable early</h3>
-          <p>
-            Standardised a small set of intake questions to improve problem statements, baselines, sizing, and risk clarity —
-            enabling faster prioritisation with stronger decision defensibility.
-          </p>
-          <div class="meta">
-            <span>Outcome: less noise + better comparability</span>
-            <span>Mechanism: single-question TIME classifier</span>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="pill"><b>Governance Translation</b> <span class="muted">• PMO / Finance alignment</span></div>
-          <h3>Applying outcome-led thinking inside formal governance</h3>
-          <p>
-            Worked with delivery and planning stakeholders to translate outcome and evidence language into governance-safe artefacts
-            (clear decision trails, trade-offs, and capacity guardrails).
-          </p>
-          <div class="meta">
-            <span>Outcome: stronger alignment across stakeholders</span>
-            <span>Mechanism: simple rules that scale</span>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="pill"><b>Leadership Enablement</b> <span class="muted">• Outcome ownership</span></div>
-          <h3>Shifting reporting from activity to outcomes</h3>
-          <p>
-            Supported leaders in moving from delivery theatre to outcome conversations — clarifying success measures,
-            evidence needs, and stop/continue decisions.
-          </p>
-          <div class="meta">
-            <span>Outcome: clearer decisions + better collaboration</span>
-            <span>Mechanism: evidence-based conversations</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-title">
-        <h2>Experience & Skills</h2>
-        <p>A scrollable "sticky notes" stack — quick to scan, easy to remember.</p>
-      </div>
-
-      <div class="sticky-stack" aria-label="Skills sticky notes">
-        <article class="note" style="--r:-2deg; --t:0px;">
-          <header>
-            <h3>Portfolio & Value</h3>
-            <span class="chip">Decision systems</span>
-          </header>
-          <ul>
-            <li>Outcome hypotheses and success measures</li>
-            <li>Value trade-offs: risk, enablement, optimisation, exit</li>
-            <li>Evidence-led sequencing (PI → half-year horizons)</li>
-            <li>Benefits framing: gain vs loss avoided</li>
-          </ul>
-        </article>
-
-        <article class="note" style="--r:1.5deg; --t:18px;">
-          <header>
-            <h3>Backlog Prioritisation</h3>
-            <span class="chip">Clarity at intake</span>
-          </header>
-          <ul>
-            <li>Front-door guardrails (problem, baseline, sizing, impact)</li>
-            <li>Comparable inputs across domains and teams</li>
-            <li>Stop / defer decisions based on evidence</li>
-            <li>Reducing re-debate and escalation during planning</li>
-          </ul>
-        </article>
-
-        <article class="note" style="--r:-1deg; --t:36px;">
-          <header>
-            <h3>TIME Classification</h3>
-            <span class="chip">T/I/M/E</span>
-          </header>
-          <ul>
-            <li><b>Mitigate</b>: risk / compliance / stability (urgency > ROI)</li>
-            <li><b>Exit</b>: decommission / cost-out (confidence matters)</li>
-            <li><b>Integrate</b>: platform alignment (enablement breadth)</li>
-            <li><b>Tolerate</b>: low urgency (defer by default)</li>
-          </ul>
-        </article>
-
-        <article class="note" style="--r:2deg; --t:54px;">
-          <header>
-            <h3>Delivery & Governance</h3>
-            <span class="chip">Hybrid-ready</span>
-          </header>
-          <ul>
-            <li>Operating inside PMO / Finance / Assurance constraints</li>
-            <li>Decision trails leaders can defend</li>
-            <li>Capacity guardrails and sequencing rules that scale</li>
-            <li>Stakeholder alignment without adding bureaucracy</li>
-          </ul>
-        </article>
-
-        <article class="note" style="--r:-1.2deg; --t:72px;">
-          <header>
-            <h3>Leadership & Influence</h3>
-            <span class="chip">Outcomes</span>
-          </header>
-          <ul>
-            <li>Turning ambiguity into simple decision rules</li>
-            <li>Facilitating trade-off conversations</li>
-            <li>Coaching outcome ownership and decision quality</li>
-            <li>Replacing opinion-debate with evidence</li>
-          </ul>
-        </article>
-      </div>
-
-      <p class="muted" style="margin:14px 0 0; line-height:1.6">
-        Tip: these notes are <b>sticky while you scroll</b>, so the key themes stay visible and memorable.
-      </p>
-    </section>
-
-    <section id="certs">
-      <div class="section-title">
-        <h2>Certifications</h2>
-        <p>Deliberate learning aligned to portfolio/value impact.</p>
-      </div>
-
-      <div class="split">
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:16px">Completed</h3>
-          <div class="certs" aria-label="Completed certifications">
-            <span class="cert"><strong>PSM I</strong> — Professional Scrum Master</span>
-            <span class="cert"><strong>PAL I</strong> — Professional Agile Leadership</span>
-            <span class="cert"><strong>PPDV</strong> — Product Discovery & Validation</span>
-            <span class="cert"><strong>AgilePM</strong> — Foundation</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:16px">In progress / planned</h3>
-          <div class="certs" aria-label="Planned certifications">
-            <span class="cert"><strong>PAL-EBM</strong> — Evidence-Based Management</span>
-            <span class="cert"><strong>AgilePM</strong> — Practitioner</span>
-            <span class="cert"><strong>PSPO I</strong> — Product Owner</span>
-          </div>
-          <p class="muted" style="margin:12px 0 0; line-height:1.55">
-            Certifications are used as signals and structure — the goal is improved decision-making, not badge collection.
-          </p>
+        <div class="reveal in delay-3" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="#contact">Contact</a>
+          <a class="btn" href="#impact">View impact</a>
         </div>
       </div>
-    </section>
 
-    <section id="insights">
-      <div class="section-title">
-        <h2>Insights</h2>
-        <p>Short, practical takes you can reuse in governed environments.</p>
-      </div>
+      <aside class="card reveal in delay-2" aria-label="Executive snapshot">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px;">
+          <div style="font-weight:860;">Executive snapshot</div>
+          <span class="chip">Sky / Comcast</span>
+        </div>
 
-      <div class="grid-2">
-        <article class="card project">
-          <h3>Why scoring fails without categorisation</h3>
-          <p>
-            Risk work, exit work, strategic enablement, and optimisation behave differently. Force like-for-like comparison first,
-            then score within category.
-          </p>
-          <div class="meta"><span class="mono">Principle:</span> Not all work should compete with all other work.</div>
-        </article>
+        <p class="muted" style="margin:0; line-height:1.6;">
+          Builds decision clarity at scale: consistent intake, transparent scoring, and value narratives leaders can trust.
+        </p>
 
-        <article class="card project">
-          <h3>Clarity is an outcome, not a survey</h3>
-          <p>
-            If clarity exists, it’s visible in decision speed, fewer escalations, and better quality inputs — not self-reported maturity.
-          </p>
-          <div class="meta"><span class="mono">Principle:</span> Evidence beats advocacy.</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>For roles in value, portfolio, prioritisation, and governed transformation.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:16px">Let’s discuss</h3>
-          <p class="muted" style="margin:0 0 14px; line-height:1.6">
-            If you need clarity on portfolio decisions, prioritisation, or value realisation within real governance constraints,
-            I’m open to conversations.
-          </p>
-          <div class="hero-actions">
-            <!-- Replace placeholders with your links -->
-            <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="mailto:your.email@example.com">Email</a>
+        <div class="tiles">
+          <div class="tile">
+            <div class="v" data-count="1">0</div>
+            <div class="k">North star: measurable outcomes</div>
           </div>
-          <p class="muted" style="margin:14px 0 0; font-size:13px">
-            Replace LinkedIn and email links in the HTML to make these live.
-          </p>
+          <div class="tile">
+            <div class="v" data-count="3">0+</div>
+            <div class="k">Domains: Ops, Tech, CX</div>
+          </div>
+          <div class="tile">
+            <div class="v" data-count="2025">0</div>
+            <div class="k">Value / VMO trajectory focus</div>
+          </div>
+          <div class="tile">
+            <div class="v">PSM I · PAL I · PPDV</div>
+            <div class="k">Scrum.org credentials</div>
+          </div>
         </div>
+      </aside>
+    </div>
+  </section>
 
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:16px">Quick edit guide</h3>
-          <ul class="list">
-            <li>Search for <span class="mono">your.email@example.com</span> and replace.</li>
-            <li>Replace the LinkedIn URL in the Contact section.</li>
-            <li>Add your CV PDF link (search: <span class="mono">Download CV</span>).</li>
-            <li>Swap project blurbs for your real, non-confidential examples.</li>
-          </ul>
+  <section id="focus">
+    <div class="section-title">
+      <h2>Focus</h2>
+      <p>Where I deliver the highest leverage.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card block reveal">
+        <h3>Prioritisation that leaders can defend</h3>
+        <div class="meta">
+          <span class="chip">Transparent scoring</span>
+          <span class="chip">Governance-ready</span>
+          <span class="chip">Evidence-led</span>
+        </div>
+        <ul class="bullets">
+          <li>Intake guardrails that reduce noise and force clarity early.</li>
+          <li>Value models that balance outcomes, risk, compliance and effort.</li>
+          <li>Decision narratives that scale across teams and stakeholders.</li>
+        </ul>
+      </div>
+
+      <div class="card block reveal delay-1">
+        <h3>Value realisation inside delivery</h3>
+        <div class="meta">
+          <span class="chip">Benefits tracking</span>
+          <span class="chip">Baseline + uplift</span>
+          <span class="chip">Operational metrics</span>
+        </div>
+        <ul class="bullets">
+          <li>Outcome hypotheses tied to observable measures.</li>
+          <li>Practical measurement plans (before/after, cohorts, leading indicators).</li>
+          <li>Visible trade-offs: what we stop, start, and shift.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact">
+    <div class="section-title">
+      <h2>Impact</h2>
+      <p>Selected themes (replace with your strongest quantified wins as you choose).</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card block reveal">
+        <h3>Automation & efficiency</h3>
+        <div class="meta"><span class="chip">AI / RPA</span><span class="chip">Cost-to-serve</span></div>
+        <ul class="bullets">
+          <li>Identified repeatable operational work suitable for automation and standardisation.</li>
+          <li>Built stakeholder alignment around measurable benefit cases (time, cost, quality).</li>
+          <li>Embedded value tracking into delivery routines.</li>
+        </ul>
+      </div>
+
+      <div class="card block reveal delay-1">
+        <h3>Backlog order and planning discipline</h3>
+        <div class="meta"><span class="chip">PI / Portfolio</span><span class="chip">Decision clarity</span></div>
+        <ul class="bullets">
+          <li>Introduced simple, scalable prioritisation rules to improve decision velocity.</li>
+          <li>Reduced “everything is priority” behaviour through intake standards.</li>
+          <li>Aligned outcomes, compliance and risk into a single view for leaders.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="toolkit">
+    <div class="section-title">
+      <h2>Toolkit</h2>
+      <p>How I work (and what I bring).</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card block reveal">
+        <h3>Methods</h3>
+        <div class="meta"><span class="chip">Agile / Scrum</span><span class="chip">Lean</span><span class="chip">Flow</span></div>
+        <ul class="bullets">
+          <li>Outcome definition and hypothesis framing</li>
+          <li>Discovery / validation loops for priority confidence</li>
+          <li>Value scoring and portfolio decision support</li>
+        </ul>
+      </div>
+
+      <div class="card block reveal delay-1">
+        <h3>Credentials</h3>
+        <div class="meta"><span class="chip">Scrum.org</span><span class="chip">Practitioner</span></div>
+        <ul class="bullets">
+          <li>PSM I</li>
+          <li>PAL I</li>
+          <li>PPDV</li>
+          <li class="muted">Next: PAL-EBM / SAFe SM (as applicable)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="section-title">
+      <h2>Journey</h2>
+      <p>Trajectory into value / transformation leadership.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="timeline">
+        <div class="t-item">
+          <h4>Value enablement in delivery ecosystems</h4>
+          <p>Backlog clarity, benefits logic, decision support, stakeholder alignment.</p>
+          <div class="when">Current focus</div>
+        </div>
+        <div class="t-item">
+          <h4>Operational excellence foundations</h4>
+          <p>Customer operations, metrics-driven performance, process improvement.</p>
+          <div class="when">Prior experience</div>
+        </div>
+        <div class="t-item">
+          <h4>Next</h4>
+          <p>Value Lead → Value Transformation Lead (VMO-style function / PPM enablement).</p>
+          <div class="when">Target path</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <div class="foot">
-        <span>© <span id="year"></span> Peter Harding</span>
-        <span class="sep">•</span>
-        <span class="muted">Built as a single-page profile (HTML/CSS/JS).</span>
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Replace with your preferred links.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <p class="muted" style="margin:0 0 10px;">✉️ <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p class="muted" style="margin:0 0 10px;">🔗 <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p class="muted" style="margin:0;">📄 <a href="#" onclick="alert('Add your CV PDF link here.'); return false;">Download CV</a></p>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="mailto:your.email@example.com">Email</a>
+          <a class="btn" href="#top">Back to top</a>
+        </div>
       </div>
-    </footer>
-  </main>
 
-  <script>
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const themeIcon = document.getElementById('themeIcon');
-    const year = document.getElementById('year');
+      <div class="card reveal delay-1">
+        <h3 style="margin:0 0 8px;">Availability</h3>
+        <p class="muted" style="margin:0; line-height:1.6;">
+          Open to senior roles across value, transformation, portfolio enablement and outcome-led delivery within complex operational environments.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    year.textContent = new Date().getFullYear();
+  <footer>
+    <div class="foot">© <span id="year"></span> Peter Harding</div>
+  </footer>
+</main>
 
-    function setTheme(mode){
-      document.body.setAttribute('data-theme', mode);
-      localStorage.setItem('theme', mode);
-      themeIcon.textContent = mode === 'light' ? '☀' : '◐';
-    }
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    const saved = localStorage.getItem('theme');
-    if(saved){
-      setTheme(saved);
-    } else {
-      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-      setTheme(prefersLight ? 'light' : 'dark');
-    }
-
-    themeBtn.addEventListener('click', () => {
-      const current = document.body.getAttribute('data-theme') || 'dark';
-      setTheme(current === 'dark' ? 'light' : 'dark');
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('in');
     });
-  </script>
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Count tiles in hero snapshot
+  const snap = document.querySelector('aside[aria-label="Executive snapshot"]');
+  if(snap){
+    const countObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.querySelectorAll('[data-count]').forEach(el => {
+          const raw = el.getAttribute('data-count');
+          const target = Number(raw || '0');
+          const isYear = target > 1000;
+          const duration = 900;
+          const t0 = performance.now();
+
+          function tick(t){
+            const p = Math.min(1, (t - t0) / duration);
+            const eased = p * (2 - p);
+            const v = Math.round(target * eased);
+            el.textContent = isYear ? String(v) : (String(v) + (target < 10 ? "" : "+"));
+            if(p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+        countObs.unobserve(entry.target);
+      });
+    }, {threshold: 0.35});
+    countObs.observe(snap);
+  }
+</script>
 </body>
 </html>
