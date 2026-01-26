@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Peter Harding — Value & Portfolio Leadership. Outcome-driven decision making, portfolio clarity, prioritisation, and delivery governance." />
+  <title>Peter Harding — Value & Portfolio Leadership</title>
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --bg2:#0f1626;
+      --card:#111a2c;
+      --text:#e8eefc;
+      --muted:#a7b5d6;
+      --line: rgba(255,255,255,.12);
+      --accent:#7aa7ff;
+      --accent2:#7cf0c5;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1040px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    [data-theme="light"]{
+      --bg:#f7f9ff;
+      --bg2:#ffffff;
+      --card:#ffffff;
+      --text:#101827;
+      --muted:#4b556a;
+      --line: rgba(16,24,39,.14);
+      --accent:#245cff;
+      --accent2:#0f9d75;
+      --shadow: 0 10px 24px rgba(16,24,39,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(122,167,255,.25), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(124,240,197,.18), transparent 60%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent)}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px;}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg2) 65%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{max-width:var(--max); margin:0 auto; padding:12px 18px; display:flex; align-items:center; gap:12px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
+    .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent)}
+    .nav{margin-left:auto; display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+    .nav a{font-size:14px; color:var(--muted)}
+    .nav a:hover{color:var(--text)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--card) 86%, transparent);
+      box-shadow: var(--shadow);
+      font-size:14px; color:var(--text);
+      cursor:pointer;
+    }
+    .btn:hover{border-color: color-mix(in oklab, var(--accent) 50%, var(--line));}
+    .btn.small{padding:8px 10px; border-radius:10px; box-shadow:none}
+    .btn.primary{border:none; background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent2) 65%, var(--accent))); color:white;}
+    .btn.primary:hover{filter:brightness(1.03)}
+
+    /* Hero */
+    .hero{padding:44px 0 26px;}
+    .hero-grid{display:grid; gap:18px; grid-template-columns: 1.3fr .7fr; align-items:start;}
+    @media (max-width: 880px){ .hero-grid{grid-template-columns:1fr} }
+
+    h1{font-size:44px; margin:0 0 10px; line-height:1.05; letter-spacing:-.02em;}
+    .subtitle{font-size:18px; color:var(--muted); line-height:1.45; margin:0 0 18px;}
+
+    .tagrow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 22px;}
+    .tag{font-size:13px; color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:999px; background: color-mix(in oklab, var(--card) 78%, transparent)}
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in oklab, var(--card) 92%, transparent);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap;}
+
+    .mini{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .mini h3{margin:0; font-size:14px; color:var(--muted); font-weight:650; letter-spacing:.08em; text-transform:uppercase}
+    .mini .line{height:1px; background:var(--line); margin:6px 0 2px}
+    .kpi{display:grid; gap:10px; grid-template-columns:1fr 1fr;}
+    .kpi .box{border:1px solid var(--line); border-radius:14px; padding:12px; background: color-mix(in oklab, var(--bg2) 80%, transparent)}
+    .kpi .num{font-family:var(--mono); font-size:18px}
+    .kpi .lbl{font-size:12px; color:var(--muted); margin-top:4px}
+
+    /* Sections */
+    section{padding:26px 0}
+    .section-title{display:flex; align-items:baseline; gap:12px; margin:0 0 14px}
+    .section-title h2{margin:0; font-size:20px}
+    .section-title p{margin:0; color:var(--muted); font-size:14px}
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 880px){ .grid-2{grid-template-columns:1fr} }
+
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    @media (max-width: 980px){ .grid-3{grid-template-columns:1fr} }
+
+    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .list li{margin:8px 0}
+
+    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted);}
+    .pill b{color:var(--text); font-weight:650}
+
+    .project{display:flex; flex-direction:column; gap:10px}
+    .project h3{margin:0; font-size:16px}
+    .project p{margin:0; color:var(--muted); line-height:1.5}
+    .project .meta{display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:12px}
+
+    .split{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 880px){ .split{grid-template-columns:1fr} }
+
+    .certs{display:flex; flex-wrap:wrap; gap:10px}
+    .cert{border:1px solid var(--line); border-radius:999px; padding:8px 10px; background: color-mix(in oklab, var(--bg2) 78%, transparent); font-size:13px; color:var(--muted)}
+    .cert strong{color:var(--text)}
+
+    /* Sticky notes stack */
+    .sticky-stack{
+      display:grid;
+      gap:16px;
+      padding:6px 0;
+    }
+    .note{
+      position:sticky;
+      top:74px; /* below sticky header */
+      transform: rotate(var(--r, 0deg));
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:16px 16px 14px;
+      background:
+        radial-gradient(600px 220px at 10% 0%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+        linear-gradient(180deg, color-mix(in oklab, var(--bg2) 92%, transparent), color-mix(in oklab, var(--card) 92%, transparent));
+      box-shadow: var(--shadow);
+      margin-top: var(--t, 0px);
+    }
+    .note header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .note h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .note ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    .note li{margin:8px 0; line-height:1.45}
+    .note b{color:var(--text)}
+
+    .chip{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      background: color-mix(in oklab, var(--bg2) 86%, transparent);
+      white-space:nowrap;
+    }
+
+    @media (max-width: 600px){
+      .note{top:64px}
+      .note header{flex-direction:column; align-items:flex-start}
+    }
+
+    /* Footer */
+    footer{padding:36px 0 18px; border-top:1px solid var(--line); margin-top:34px}
+    .foot{display:flex; gap:12px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13px}
+    .foot .sep{opacity:.4}
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .mono{font-family:var(--mono)}
+    .sr-only{position:absolute; left:-9999px}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="Site home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Peter Harding</span>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#projects">Work</a>
+        <a href="#skills">Experience & Skills</a>
+        <a href="#certs">Certifications</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact">Contact</a>
+        <button id="themeBtn" class="btn small" type="button" aria-label="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">◐</span>
+          <span class="sr-only">Toggle theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div>
+          <h1>Value & Portfolio Leadership</h1>
+          <p class="subtitle">
+            I help organisations move from output-focused delivery to <b>clear, defensible, outcome-driven decisions</b> —
+            designing practical prioritisation and intake systems that reduce noise, expose trade-offs, and improve investment confidence.
+          </p>
+
+          <div class="tagrow" aria-label="Key themes">
+            <span class="tag">Portfolio clarity</span>
+            <span class="tag">Backlog prioritisation</span>
+            <span class="tag">Evidence-based decisioning</span>
+            <span class="tag">Risk / Compliance trade-offs</span>
+            <span class="tag">Hybrid governance</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Let’s talk</a>
+            <a class="btn" href="#projects">View work</a>
+            <!-- Replace with your CV PDF URL when available -->
+            <a class="btn" href="#" onclick="alert('Add your CV PDF link in the HTML (search for: Replace with your CV PDF URL).'); return false;">Download CV</a>
+          </div>
+        </div>
+
+        <aside class="card mini" aria-label="Quick snapshot">
+          <h3>Snapshot</h3>
+          <div class="line"></div>
+          <div class="kpi">
+            <div class="box">
+              <div class="num">VMO-aligned</div>
+              <div class="lbl">Value / portfolio focus</div>
+            </div>
+            <div class="box">
+              <div class="num">Comcast / Sky</div>
+              <div class="lbl">Governed, scaled environments</div>
+            </div>
+            <div class="box">
+              <div class="num">TIME</div>
+              <div class="lbl">Tolerate / Integrate / Mitigate / Exit</div>
+            </div>
+            <div class="box">
+              <div class="num">Evidence</div>
+              <div class="lbl">Decision quality > activity</div>
+            </div>
+          </div>
+          <p class="muted" style="margin:8px 0 0; line-height:1.55">
+            I work where competing priorities, governance, and scale make prioritisation difficult — building simple systems leaders can trust.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Work</h2>
+        <p>Selected portfolio / decision-system examples (non-confidential).</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card project">
+          <div class="pill"><b>Portfolio Prioritisation</b> <span class="muted">• TIME classification + decision rules</span></div>
+          <h3>TIME-based intake and prioritisation for multi-domain backlogs</h3>
+          <p>
+            Introduced a lightweight classification layer (Tolerate / Integrate / Mitigate / Exit) to make work comparable,
+            reduce re-debate during planning, and protect risk and exit work from being crowded out.
+          </p>
+          <div class="meta">
+            <span>Outcome: clearer sequencing + fewer escalations</span>
+            <span>Mechanism: front-door guardrails</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="pill"><b>Backlog Quality</b> <span class="muted">• Front-door guardrails</span></div>
+          <h3>Decision-ready intake: making value and effort comparable early</h3>
+          <p>
+            Standardised a small set of intake questions to improve problem statements, baselines, sizing, and risk clarity —
+            enabling faster prioritisation with stronger decision defensibility.
+          </p>
+          <div class="meta">
+            <span>Outcome: less noise + better comparability</span>
+            <span>Mechanism: single-question TIME classifier</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="pill"><b>Governance Translation</b> <span class="muted">• PMO / Finance alignment</span></div>
+          <h3>Applying outcome-led thinking inside formal governance</h3>
+          <p>
+            Worked with delivery and planning stakeholders to translate outcome and evidence language into governance-safe artefacts
+            (clear decision trails, trade-offs, and capacity guardrails).
+          </p>
+          <div class="meta">
+            <span>Outcome: stronger alignment across stakeholders</span>
+            <span>Mechanism: simple rules that scale</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="pill"><b>Leadership Enablement</b> <span class="muted">• Outcome ownership</span></div>
+          <h3>Shifting reporting from activity to outcomes</h3>
+          <p>
+            Supported leaders in moving from delivery theatre to outcome conversations — clarifying success measures,
+            evidence needs, and stop/continue decisions.
+          </p>
+          <div class="meta">
+            <span>Outcome: clearer decisions + better collaboration</span>
+            <span>Mechanism: evidence-based conversations</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Experience & Skills</h2>
+        <p>A scrollable "sticky notes" stack — quick to scan, easy to remember.</p>
+      </div>
+
+      <div class="sticky-stack" aria-label="Skills sticky notes">
+        <article class="note" style="--r:-2deg; --t:0px;">
+          <header>
+            <h3>Portfolio & Value</h3>
+            <span class="chip">Decision systems</span>
+          </header>
+          <ul>
+            <li>Outcome hypotheses and success measures</li>
+            <li>Value trade-offs: risk, enablement, optimisation, exit</li>
+            <li>Evidence-led sequencing (PI → half-year horizons)</li>
+            <li>Benefits framing: gain vs loss avoided</li>
+          </ul>
+        </article>
+
+        <article class="note" style="--r:1.5deg; --t:18px;">
+          <header>
+            <h3>Backlog Prioritisation</h3>
+            <span class="chip">Clarity at intake</span>
+          </header>
+          <ul>
+            <li>Front-door guardrails (problem, baseline, sizing, impact)</li>
+            <li>Comparable inputs across domains and teams</li>
+            <li>Stop / defer decisions based on evidence</li>
+            <li>Reducing re-debate and escalation during planning</li>
+          </ul>
+        </article>
+
+        <article class="note" style="--r:-1deg; --t:36px;">
+          <header>
+            <h3>TIME Classification</h3>
+            <span class="chip">T/I/M/E</span>
+          </header>
+          <ul>
+            <li><b>Mitigate</b>: risk / compliance / stability (urgency > ROI)</li>
+            <li><b>Exit</b>: decommission / cost-out (confidence matters)</li>
+            <li><b>Integrate</b>: platform alignment (enablement breadth)</li>
+            <li><b>Tolerate</b>: low urgency (defer by default)</li>
+          </ul>
+        </article>
+
+        <article class="note" style="--r:2deg; --t:54px;">
+          <header>
+            <h3>Delivery & Governance</h3>
+            <span class="chip">Hybrid-ready</span>
+          </header>
+          <ul>
+            <li>Operating inside PMO / Finance / Assurance constraints</li>
+            <li>Decision trails leaders can defend</li>
+            <li>Capacity guardrails and sequencing rules that scale</li>
+            <li>Stakeholder alignment without adding bureaucracy</li>
+          </ul>
+        </article>
+
+        <article class="note" style="--r:-1.2deg; --t:72px;">
+          <header>
+            <h3>Leadership & Influence</h3>
+            <span class="chip">Outcomes</span>
+          </header>
+          <ul>
+            <li>Turning ambiguity into simple decision rules</li>
+            <li>Facilitating trade-off conversations</li>
+            <li>Coaching outcome ownership and decision quality</li>
+            <li>Replacing opinion-debate with evidence</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="muted" style="margin:14px 0 0; line-height:1.6">
+        Tip: these notes are <b>sticky while you scroll</b>, so the key themes stay visible and memorable.
+      </p>
+    </section>
+
+    <section id="certs">
+      <div class="section-title">
+        <h2>Certifications</h2>
+        <p>Deliberate learning aligned to portfolio/value impact.</p>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3 style="margin:0 0 10px; font-size:16px">Completed</h3>
+          <div class="certs" aria-label="Completed certifications">
+            <span class="cert"><strong>PSM I</strong> — Professional Scrum Master</span>
+            <span class="cert"><strong>PAL I</strong> — Professional Agile Leadership</span>
+            <span class="cert"><strong>PPDV</strong> — Product Discovery & Validation</span>
+            <span class="cert"><strong>AgilePM</strong> — Foundation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px; font-size:16px">In progress / planned</h3>
+          <div class="certs" aria-label="Planned certifications">
+            <span class="cert"><strong>PAL-EBM</strong> — Evidence-Based Management</span>
+            <span class="cert"><strong>AgilePM</strong> — Practitioner</span>
+            <span class="cert"><strong>PSPO I</strong> — Product Owner</span>
+          </div>
+          <p class="muted" style="margin:12px 0 0; line-height:1.55">
+            Certifications are used as signals and structure — the goal is improved decision-making, not badge collection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <div class="section-title">
+        <h2>Insights</h2>
+        <p>Short, practical takes you can reuse in governed environments.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card project">
+          <h3>Why scoring fails without categorisation</h3>
+          <p>
+            Risk work, exit work, strategic enablement, and optimisation behave differently. Force like-for-like comparison first,
+            then score within category.
+          </p>
+          <div class="meta"><span class="mono">Principle:</span> Not all work should compete with all other work.</div>
+        </article>
+
+        <article class="card project">
+          <h3>Clarity is an outcome, not a survey</h3>
+          <p>
+            If clarity exists, it’s visible in decision speed, fewer escalations, and better quality inputs — not self-reported maturity.
+          </p>
+          <div class="meta"><span class="mono">Principle:</span> Evidence beats advocacy.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>For roles in value, portfolio, prioritisation, and governed transformation.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin:0 0 10px; font-size:16px">Let’s discuss</h3>
+          <p class="muted" style="margin:0 0 14px; line-height:1.6">
+            If you need clarity on portfolio decisions, prioritisation, or value realisation within real governance constraints,
+            I’m open to conversations.
+          </p>
+          <div class="hero-actions">
+            <!-- Replace placeholders with your links -->
+            <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="mailto:your.email@example.com">Email</a>
+          </div>
+          <p class="muted" style="margin:14px 0 0; font-size:13px">
+            Replace LinkedIn and email links in the HTML to make these live.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px; font-size:16px">Quick edit guide</h3>
+          <ul class="list">
+            <li>Search for <span class="mono">your.email@example.com</span> and replace.</li>
+            <li>Replace the LinkedIn URL in the Contact section.</li>
+            <li>Add your CV PDF link (search: <span class="mono">Download CV</span>).</li>
+            <li>Swap project blurbs for your real, non-confidential examples.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <span>© <span id="year"></span> Peter Harding</span>
+        <span class="sep">•</span>
+        <span class="muted">Built as a single-page profile (HTML/CSS/JS).</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const year = document.getElementById('year');
+
+    year.textContent = new Date().getFullYear();
+
+    function setTheme(mode){
+      document.body.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+      themeIcon.textContent = mode === 'light' ? '☀' : '◐';
+    }
+
+    const saved = localStorage.getItem('theme');
+    if(saved){
+      setTheme(saved);
+    } else {
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      setTheme(prefersLight ? 'light' : 'dark');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const current = document.body.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
